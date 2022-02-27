@@ -18,6 +18,10 @@
   "homepage": "https://github.com/NickLeon92/MERN-template#readme",
   "dependencies": {
     "apollo-server-express": "^3.6.3",
-    "express": "^4.17.3"
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.3",
+    "graphql": "^16.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.3"
   }
 }
