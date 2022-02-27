@@ -2,11 +2,11 @@
   "name": "mern-template",
   "version": "1.0.0",
   "description": "<img src=\"https://img.shields.io/badge/MIT-license-green\">",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "develop": "concurrently \"npm run watch\" \"cd client && npm start\"",
-    "install": "npm i && cd ./client && npm i",
+    "install": "npm i && cd /client && npm i",
     "build": "cd client && npm run build"
   },
   "repository": {
