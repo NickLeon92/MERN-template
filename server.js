@@ -3,18 +3,18 @@ const app = express()
 const port = process.env.PORT || 3000
 //------------------------------------------------------new
 const path = require('path');
-const { ApolloServer } = require('apollo-server-express');
-const { typeDefs, resolvers } = require('./schemas');
-const { authMiddleware } = require('./utils/auth');
-const db = require('./config/connection');
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: authMiddleware,
-});
-server.applyMiddleware({ app });
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+// const { ApolloServer } = require('apollo-server-express');
+// const { typeDefs, resolvers } = require('./schemas');
+// const { authMiddleware } = require('./utils/auth');
+// const db = require('./config/connection');
+// const server = new ApolloServer({
+//   typeDefs,
+//   resolvers,
+//   context: authMiddleware,
+// });
+// server.applyMiddleware({ app });
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
 
 const publicPath = path.join(__dirname, './client/', 'build/');
 app.use(express.static(publicPath));
