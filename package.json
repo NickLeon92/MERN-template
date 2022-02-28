@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "description": "<img src=\"https://img.shields.io/badge/MIT-license-green\">",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "develop": "concurrently \"npm run watch\" \"cd client && npm start\"",
-    "install": "cd client && npm i",
-    "build": "cd client && npm run build"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NickLeon92/MERN-template.git"
