@@ -7,6 +7,13 @@ const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 const mongoose = require('mongoose');
+
+const db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/testdb', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 // const server = new ApolloServer({
 //   typeDefs,
 //   resolvers,
