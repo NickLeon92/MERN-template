@@ -19,21 +19,14 @@ const db = mongoose.connect(process.env.MONGODB_URI)
 //   useFindAndModify: false,
 // });
 
-// try {
-//   await mongoose.connect(process.env.MONGODB_URI);
-// } catch (error) {
-//   handleError(error);
-// }
-
-
-// const server = new ApolloServer({
-//   typeDefs,
-//   resolvers,
-//   context: authMiddleware,
-// });
-// server.applyMiddleware({ app });
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware,
+});
+server.applyMiddleware({ app });
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // const publicPath = path.join(__dirname, './client/', 'build/');
 // app.use(express.static(publicPath));
