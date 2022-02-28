@@ -2,20 +2,15 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 //------------------------------------------------------new
-// const path = require('path');
-// const { ApolloServer } = require('apollo-server-express');
-// const { typeDefs, resolvers } = require('./schemas');
-// const { authMiddleware } = require('./utils/auth');
+const path = require('path');
+const { ApolloServer } = require('apollo-server-express');
+const { typeDefs, resolvers } = require('./schemas');
+const { authMiddleware } = require('./utils/auth');
 
 
 
 const mongoose = require('mongoose');
-const db = mongoose.connect(process.env.MONGODB_URI,{
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-})
+const db = mongoose.connect(process.env.MONGODB_URI)
 
 // const db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/testdb', {
 //   useNewUrlParser: true,
