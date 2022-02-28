@@ -22,11 +22,11 @@ const db = mongoose.connect(process.env.MONGODB_URI, {
 //   useFindAndModify: false,
 // });
 
-// const server = new ApolloServer({
-//   typeDefs,
-//   resolvers,
-//   context: authMiddleware,
-// });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware,
+});
 // server.applyMiddleware({ app });
 // app.use(express.urlencoded({ extended: false }));
 // app.use(express.json());
