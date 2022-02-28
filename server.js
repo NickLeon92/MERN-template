@@ -24,15 +24,25 @@ const Person = require('./models/Person')
 //   useFindAndModify: false,
 // });
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: authMiddleware,
-});
-server.applyMiddleware({ app });
+// const server = new ApolloServer({
+//   typeDefs,
+//   resolvers,
+//   context: authMiddleware,
+// });
+// server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.post('/create', (req,res) => {
+  Person.create(req.body).then(data => {
+    res.json(data)
+  }).catch(err => {
+    res.status(400).json(err)
+  })
+})
 
+app.get('/find', async (req,res) => {
+  Person.find().then(data => res.json(data))
+})
 // const publicPath = path.join(__dirname, './client/', 'build/');
 // app.use(express.static(publicPath));
 // app.get('*', (req, res) => {
