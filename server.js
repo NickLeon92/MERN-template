@@ -27,9 +27,9 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware,
 });
-// server.applyMiddleware({ app });
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
+server.applyMiddleware({ app });
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // const publicPath = path.join(__dirname, './client/', 'build/');
 // app.use(express.static(publicPath));
