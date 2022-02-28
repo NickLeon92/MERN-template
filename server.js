@@ -10,7 +10,10 @@ const { authMiddleware } = require('./utils/auth');
 
 
 const mongoose = require('mongoose');
-const db = mongoose.connect(process.env.MONGODB_URI)
+const db = mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 // const db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/testdb', {
 //   useNewUrlParser: true,
@@ -19,14 +22,14 @@ const db = mongoose.connect(process.env.MONGODB_URI)
 //   useFindAndModify: false,
 // });
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: authMiddleware,
-});
-server.applyMiddleware({ app });
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+// const server = new ApolloServer({
+//   typeDefs,
+//   resolvers,
+//   context: authMiddleware,
+// });
+// server.applyMiddleware({ app });
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
 
 // const publicPath = path.join(__dirname, './client/', 'build/');
 // app.use(express.static(publicPath));
