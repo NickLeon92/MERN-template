@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000
 
 
 
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 // const db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/testdb', {
 //   useNewUrlParser: true,
@@ -18,11 +18,11 @@ const mongoose = require('mongoose');
 //   useFindAndModify: false,
 // });
 
-try {
-  await mongoose.connect(process.env.MONGODB_URI);
-} catch (error) {
-  handleError(error);
-}
+// try {
+//   await mongoose.connect(process.env.MONGODB_URI);
+// } catch (error) {
+//   handleError(error);
+// }
 
 
 // const server = new ApolloServer({
