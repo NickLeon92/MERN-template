@@ -10,10 +10,12 @@ const { authMiddleware } = require('./utils/auth');
 
 
 const mongoose = require('mongoose');
-const db = mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
     useUnifiedTopology: true
 })
+
+const db = mongoose.connection
 
 const Person = require('./models/Person')
 
@@ -61,8 +63,8 @@ app.get('*', (req, res) => {
 //   res.send('Server is up!')
 // })
 
-// db.once('open', () => {
+db.once('open', () => {
   app.listen(port, () => {
     console.log(`API server running on port ${port}!`);
   });
-// });
+});
