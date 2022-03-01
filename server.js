@@ -26,11 +26,10 @@ const Person = require('./models/Person')
 console.log('apollo check: ', ApolloServer)
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
-  context: authMiddleware,
+  resolvers
 });
 console.log('apollo server check: ', server)
-// server.applyMiddleware({ app });
+server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.post('/create', (req,res) => {
