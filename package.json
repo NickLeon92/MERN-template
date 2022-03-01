@@ -13,7 +13,10 @@
     "url": "https://github.com/NickLeon92/MERN-template/issues"
   },
   "scripts": {
-    "start": "server.js"
+    "start": "node server.js",
+    "develop": "concurrently \"npm run watch\" \"cd client && npm start\"",
+    "install": "cd client && npm i",
+    "build": "cd client && npm run build"
   },
   "homepage": "https://github.com/NickLeon92/MERN-template#readme",
   "dependencies": {
