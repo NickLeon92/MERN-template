@@ -12,6 +12,9 @@
   "bugs": {
     "url": "https://github.com/NickLeon92/MERN-template/issues"
   },
+  "scripts": {
+    "start": "server.js"
+  },
   "homepage": "https://github.com/NickLeon92/MERN-template#readme",
   "dependencies": {
     "apollo-server-express": "^3.6.3",
