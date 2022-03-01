@@ -24,12 +24,22 @@ const Person = require('./models/Person')
 //   useFindAndModify: false,
 // });
 console.log('apollo check: ', ApolloServer)
-const server = new ApolloServer({
-  typeDefs,
-  resolvers
+const apolloServer = new ApolloServer({
+  introspection: true,
+  schema: await buildSchema({
+    resolvers: [__dirname + '/resolvers/**/*.js'],
+    validate: false
+  }),
+  context: ({ req, res }) => ({
+    req,
+    res,
+    redis: redisClient
+  }),
+  formatError
 });
+await apolloServer.start()
 console.log('apollo server check: ', server)
-server.applyMiddleware({ app });
+apolloServer.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.post('/create', (req,res) => {
