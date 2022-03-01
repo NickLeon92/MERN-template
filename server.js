@@ -61,8 +61,8 @@ app.get('*', (req, res) => {
 //   res.send('Server is up!')
 // })
 
-db.once('open', () => {
+// db.once('open', () => {
   app.listen(port, () => {
     console.log(`API server running on port ${port}!`);
   });
-});
+// });
