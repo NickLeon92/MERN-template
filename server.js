@@ -23,12 +23,12 @@ const Person = require('./models/Person')
 //   useCreateIndex: true,
 //   useFindAndModify: false,
 // });
-console.log(ApolloServer)
-// const server = new ApolloServer({
-//   typeDefs,
-//   resolvers,
-//   context: authMiddleware,
-// });
+console.log('apollo check: ', ApolloServer)
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware,
+});
 // server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
